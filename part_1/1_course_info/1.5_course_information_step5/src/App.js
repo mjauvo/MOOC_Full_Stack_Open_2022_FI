@@ -13,6 +13,7 @@ const Part = (props) => {
 }
 
 const Content = (props) => {
+    //console.log(props)
     return (
         <div>
             <Part part={props.course.parts[0]} />
