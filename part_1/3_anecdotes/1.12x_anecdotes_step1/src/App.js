@@ -9,7 +9,15 @@ const Button = ({handleClick, label}) => (
         <button onClick={handleClick}>{label}</button>
     </div>
 )
-  
+
+const Anecdote =({selected}) => (
+    <div>
+        <p>
+            {selected}
+        </p>
+    </div>
+)
+
 const App = () => {
     const anecdotes = [
         'If it hurts, do it more often',
@@ -26,11 +34,11 @@ const App = () => {
     const handleSelect = () => setSelected(
         randomize(anecdotes.length)
     )
-    
+
     return (
         <div>
             <Button handleClick = {handleSelect} label = "GET RANDOMIZED!" />
-            <p>{anecdotes[selected]}</p>
+            <Anecdote selected={anecdotes[selected]} />
         </div>
       )
 }
