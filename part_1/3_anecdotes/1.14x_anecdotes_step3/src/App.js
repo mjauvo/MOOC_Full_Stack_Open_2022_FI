@@ -3,20 +3,16 @@ import { useState } from 'react'
 const randomize = (number) => (
     Math.floor(Math.random() * number)
 )
-  
-const Button = ({handleClick, label}) => (
-    <>
-        <button onClick={handleClick}>{label}</button>
-    </>
+
+const Title = ({title}) => (
+    <h1>{title}</h1>
 )
 
-const Title = ({text}) => (
-    <>
-      <h1>{text}</h1>
-    </>
-  )
+const Button = ({handleClick, label}) => (
+    <button onClick = {handleClick}> {label}</button>
+)
   
-const Anecdote =({selected, votes}) => (
+const Anecdote = ({selected, votes}) => (
     <>
         <p>
             VOTES: {votes}<br/>
@@ -61,7 +57,7 @@ const App = () => {
     let maxVotes = 0
     let maxVotesIndex = 0
 
-    for (let i=0; i < anecdotes.length; i++) {
+    for (let i = 0; i < anecdotes.length; i++) {
         if (votes[i] > maxVotes) {
             maxVotes = votes[i]
             maxVotesIndex = i
@@ -70,12 +66,12 @@ const App = () => {
   
     return (
         <div>
-            <Title text = "Anecdote of the Day" />
-            <Button handleClick = {handleSelect} label = "GET RANDOMIZED!" /> 
-            <Button handleClick = {handleVote} label = "VOTE!" />
+            <Title title = "Anecdote of the Day" />
+            <Button handleClick = {handleSelect} label = "NEXT ANECDOTE" /> 
+            <Button handleClick = {handleVote}   label = "VOTE" />
             <Anecdote selected = {anecdotes[selected]} votes = {votes[selected]}/>
-            <Title text = "Anecdote with most votes" />
-            <Winner maxVotes={maxVotes} winner={anecdotes[maxVotesIndex]} />
+            <Title title = "Anecdote with most votes" />
+            <Winner winner={anecdotes[maxVotesIndex]} maxVotes={maxVotes} />
         </div>
       )
 }
