@@ -1,25 +1,17 @@
 import { useState } from 'react'
 
-const Title = ({name}) => {
-    return (
-        <>
-            <h1>{name}</h1>
-        </>
-    )
-}
+const Title = ({title}) => (
+    <h1>{title}</h1>
+)
 
-const Button = ({behavior, value}) => {
-    return (
-        <>
-            <button onClick={behavior}>{value}</button>
-        </>
-    )
-}
+const Button = ({handleClick, label}) => (
+    <button onClick={handleClick}>{label}</button>
+)
 
-const Result = ({name, value}) => {
+const Result = ({stat, value}) => {
     return (
         <>
-            {name}: {value}<br/>
+            {stat}: {value}<br/>
         </>
     )
 }
@@ -33,18 +25,17 @@ const Statistics = ({good, neutral, bad}) => {
   
     return (
         <>
-            <Result name = "Good" value={good} />
-            <Result name = "Neutral" value={neutral} />
-            <Result name = "Bad" value={bad} />
-            <Result name = "Total" value={total} />
-            <Result name = "Average" value={average} />
-            <Result name = "Positive (%)" value={positive} />
+            <Result stat = "Good"         value = {good} />
+            <Result stat = "Neutral"      value = {neutral} />
+            <Result stat = "Bad"          value = {bad} />
+            <Result stat = "Total"        value = {total} />
+            <Result stat = "Average"      value = {average} />
+            <Result stat = "Positive (%)" value = {positive} />
         </>
     )
 }
   
 const App = () => {
-    // save clicks of each button to its own state
     const [good, setGood] = useState(0)
     const [neutral, setNeutral] = useState(0)
     const [bad, setBad] = useState(0)
@@ -55,13 +46,13 @@ const App = () => {
   
     return (
         <div>
-            <Title name = "Give Feedback"/>
-            <Button behavior = {handleGood} value="GOOD" />
-            <Button behavior = {handleNeutral} value="NEUTRAL" />
-            <Button behavior = {handleBad} value="BAD" />
+            <Title  title = "Give Feedback"/>
+            <Button handleClick = {handleGood}    label = "GOOD" />
+            <Button handleClick = {handleNeutral} label = "NEUTRAL" />
+            <Button handleClick = {handleBad}     label = "BAD" />
 
-            <Title name = "Statistics"/>
-            <Statistics good={good} neutral={neutral} bad={bad} />
+            <Title  title = "Statistics"/>
+            <Statistics good = {good} neutral = {neutral} bad = {bad} />
         </div>
     )
 }
