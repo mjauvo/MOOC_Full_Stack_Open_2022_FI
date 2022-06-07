@@ -3,26 +3,22 @@ import { useState } from 'react'
 const randomize = (number) => (
     Math.floor(Math.random() * number)
 )
-  
-const Button = ({handleClick, label}) => (
-    <div>
-        <button onClick={handleClick}>{label}</button>
-    </div>
+
+const Title = ({title}) => (
+    <h1>{title}</h1>
 )
 
-const Title = ({text}) => (
+const Button = ({handleClick, label}) => (
+    <button onClick = {handleClick}> {label}</button>
+)
+
+const Anecdote = ({selected, votes}) => (
     <>
-      <h1>{text}</h1>
-    </>
-  )
-  
-const Anecdote =({selected, votes}) => (
-    <div>
         <p>
             VOTES: {votes}<br/>
             {selected}
         </p>
-    </div>
+    </>
 )
 
 const App = () => {
@@ -51,9 +47,9 @@ const App = () => {
 
     return (
         <div>
-            <Title text = "Anecdote of the Day" />
-            <Button handleClick = {handleSelect} label = "GET RANDOMIZED!" /> 
-            <Button handleClick = {handleVote} label = "VOTE!" />
+            <Title title = "Anecdote of the Day" />
+            <Button handleClick = {handleSelect} label = "NEXT ANECDOTE" /> 
+            <Button handleClick = {handleVote}   label = "VOTE" />
             <Anecdote selected = {anecdotes[selected]} votes = {votes[selected]}/>
         </div>
       )
