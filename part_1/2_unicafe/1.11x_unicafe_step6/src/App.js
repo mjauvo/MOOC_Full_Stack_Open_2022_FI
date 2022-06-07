@@ -19,7 +19,7 @@ const StatisticLine = ({stat, value}) => {
 }
   
 const Statistics = ({good, neutral, bad}) => {
-    console.log({good, neutral, bad})
+    //console.log({good, neutral, bad})
   
     const total = good + neutral + bad
     const average = (good - bad) / total
