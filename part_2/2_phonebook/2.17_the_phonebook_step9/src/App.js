@@ -93,13 +93,6 @@ const App = () => {
                         setPersons(filteredPersons);
                         setFilterValue("");
                     })
-                    .catch((error) => {
-                        alert(`'${person.name}' was already deleted from phonebook!`)
-                        const filteredPersons = persons.filter((person) => person.id !== id);
-                        setPersons(filteredPersons);
-                        setFilterValue("");
-                    })
-
         }
     }
     
