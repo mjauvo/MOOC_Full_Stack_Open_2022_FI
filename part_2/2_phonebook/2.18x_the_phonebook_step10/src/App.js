@@ -101,13 +101,6 @@ const App = () => {
 
                         ))
                 })
-                // trying to update a contact which does not exist in the database
-                .catch((error) => {
-                    alert(`'${personObject.name}' does not exist in the phonebook`)
-                    const filteredPersons = persons.filter((person) => person.id !== id)
-                    setPersons(filteredPersons)
-                    setFilterValue("")
-                })
                 resetForm();
     }
 
@@ -119,13 +112,6 @@ const App = () => {
             personService
                 .deletePerson(id)
                     .then(() => {
-                        const filteredPersons = persons.filter((person) => person.id !== id)
-                        setPersons(filteredPersons)
-                        setFilterValue("")
-                    })
-                    // trying to delete a contact which does not exist in the database
-                    .catch((error) => {
-                        alert(`'${person.name}' has already been removed from the phonebook!`)
                         const filteredPersons = persons.filter((person) => person.id !== id)
                         setPersons(filteredPersons)
                         setFilterValue("")
